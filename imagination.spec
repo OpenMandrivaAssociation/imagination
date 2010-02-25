@@ -7,7 +7,7 @@ Name:		%{name}
 Version:	%{version}
 Release:	%{release}
 Group:		Video
-License:	GPLv3
+License:	GPLv2+
 URL:		http://imagination.sourceforge.net/
 Source:         %{name}-%{version}.tar.bz2
 # patch to add support of plugin, asked by developer in README
