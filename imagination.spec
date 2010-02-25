@@ -17,8 +17,8 @@ BuildRequires:	sox-devel >= 14.3.0
 BuildRequires:	desktop-file-utils
 BuildRequires:	cairo-devel 
 BuildRequires:  glib-devel
-BuildRequires:  gettext
-BuildRequires:	docbook-xsl
+BuildRequires:  gettext intltool
+BuildRequires:	docbook-xsl xsltproc
 Requires: 	sox >= 14.3.0
 Requires: 	ffmpeg
 
