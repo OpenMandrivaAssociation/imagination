@@ -1,6 +1,6 @@
 %define		name	imagination
 %define		version	2.1
-%define		release %mkrel 1
+%define		release %mkrel 2
 
 Summary:	Simple DVD slide show maker
 Name:		%{name}
