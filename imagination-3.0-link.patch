@@ -1,0 +1,19 @@
+--- src/Makefile.am.link	2012-07-30 03:06:36.000000000 +0000
++++ src/Makefile.am	2012-07-30 03:06:47.000000000 +0000
+@@ -29,4 +29,4 @@
+ imagination_CFLAGS = \
+ 	-DDATADIR=\"$(datadir)\"
+ 
+-imagination_LDADD = @PACKAGE_LIBS@ @SOX_LIBS@ $(INTLLIBS)
++imagination_LDADD = @PACKAGE_LIBS@ @SOX_LIBS@ $(INTLLIBS) -lm -lgmodule-2.0
+--- src/Makefile.in.link	2012-07-30 03:06:57.000000000 +0000
++++ src/Makefile.in	2012-07-30 03:07:11.000000000 +0000
+@@ -272,7 +272,7 @@
+ imagination_CFLAGS = \
+ 	-DDATADIR=\"$(datadir)\"
+ 
+-imagination_LDADD = @PACKAGE_LIBS@ @SOX_LIBS@ $(INTLLIBS)
++imagination_LDADD = @PACKAGE_LIBS@ @SOX_LIBS@ $(INTLLIBS) -lm -lgmodule-2.0
+ all: all-am
+ 
+ .SUFFIXES:

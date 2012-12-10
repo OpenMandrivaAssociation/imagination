@@ -1,57 +1,49 @@
-%define		name	imagination
-%define		version	2.1
-%define		release %mkrel 2
-
 Summary:	Simple DVD slide show maker
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:		imagination
+Version:	3.0
+Release:	1
 Group:		Video
 License:	GPLv2+
 URL:		http://imagination.sourceforge.net/
-Source:         %{name}-%{version}.tar.bz2
-# patch to add support of plugin, asked by developer in README
-Patch:          imagination-plugin_support.patch
-BuildRequires:	gtk2-devel
-BuildRequires:	sox-devel >= 14.3.0
+Source:		http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+Patch0:		imagination-3.0-link.patch
+BuildRequires:	pkgconfig(cairo) >= 1.6
+BuildRequires:	pkgconfig(glib-2.0) > 2.18.0
+BuildRequires:	pkgconfig(gthread-2.0)
+BuildRequires:	pkgconfig(gtk+-2.0) >= 2.14.0
+BuildRequires:	pkgconfig(sox) >= 14.2.0
 BuildRequires:	desktop-file-utils
-BuildRequires:	cairo-devel 
-BuildRequires:  glib-devel
-BuildRequires:  gettext intltool
-BuildRequires:	docbook-xsl xsltproc
-Requires: 	sox >= 14.3.0
-Requires: 	ffmpeg
-
+BuildRequires:	gettext
+BuildRequires:	intltool
+BuildRequires:	xsltproc
+BuildRequires:	docbook-xsl
+BuildRequires:	docbook-style-xsl
+Requires:	sox >= 14.3.0
+Requires:	ffmpeg
 
 %description
 Imagination is a lightweight and simple DVD slide show maker written 
 in C language and built with the GTK+2 toolkit.
 
 %prep
-%setup -q 
-%patch -p1
+%setup -q
+%patch0 -p0
 
 %build
-%configure2_5x --disable-static 
-
-%make 
+%configure2_5x --disable-static
+%make
 
 %install
-rm -rf $RPM_BUILD_ROOT
-%makeinstall_std 
+%makeinstall_std
+
 desktop-file-install --vendor="" \
 	--add-category="X-MandrivaLinux-Multimedia-Video" \
-	--dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
+	--dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 %find_lang %{name}
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
 %files -f %{name}.lang
-%defattr(-,root,root)
 %doc AUTHORS ChangeLog NEWS README TODO
-%{_docdir}/%{name}
 %{_bindir}/%{name}
 %{_libdir}/%{name}
 %{_datadir}/%{name}
