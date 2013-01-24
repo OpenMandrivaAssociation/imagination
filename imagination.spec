@@ -1,7 +1,7 @@
 Summary:	Simple DVD slide show maker
 Name:		imagination
 Version:	3.0
-Release:	1
+Release:	2
 Group:		Video
 License:	GPLv2+
 URL:		http://imagination.sourceforge.net/
@@ -28,6 +28,8 @@ in C language and built with the GTK+2 toolkit.
 %prep
 %setup -q
 %patch0 -p0
+# Otherwise plugins won't be loading from %{_libdir}/%{name}
+sed -i -e "/#define PLUGINS_INSTALLED/s:0:1:" src/support.h
 
 %build
 %configure2_5x --disable-static
