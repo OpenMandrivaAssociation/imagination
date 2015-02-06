@@ -1,7 +1,7 @@
 Summary:	Simple DVD slide show maker
 Name:		imagination
 Version:	3.0
-Release:	2
+Release:	3
 Group:		Video
 License:	GPLv2+
 URL:		http://imagination.sourceforge.net/
