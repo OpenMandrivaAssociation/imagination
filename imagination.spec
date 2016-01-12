@@ -27,20 +27,17 @@ in C language and built with the GTK+2 toolkit.
 
 %prep
 %setup -q
-%patch0 -p0
+%apply_patches
 # Otherwise plugins won't be loading from %{_libdir}/%{name}
 sed -i -e "/#define PLUGINS_INSTALLED/s:0:1:" src/support.h
 
 %build
-%configure2_5x --disable-static
+autoreconf -fiv
+%configure2_5x
 %make
 
 %install
 %makeinstall_std
-
-desktop-file-install --vendor="" \
-	--add-category="X-MandrivaLinux-Multimedia-Video" \
-	--dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 %find_lang %{name}
 
