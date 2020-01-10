@@ -27,7 +27,7 @@ in C language and built with the GTK+2 toolkit.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 # Otherwise plugins won't be loading from %{_libdir}/%{name}
 sed -i -e "/#define PLUGINS_INSTALLED/s:0:1:" src/support.h
 
