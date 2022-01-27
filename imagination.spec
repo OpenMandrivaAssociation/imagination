@@ -1,16 +1,17 @@
 Summary:	Simple DVD slide show maker
 Name:		imagination
-Version:	3.0
-Release:	3
-Group:		Video
+Version:	3.6
+Release:	1
+Group:		Video/Editors
 License:	GPLv2+
 URL:		http://imagination.sourceforge.net/
 Source:		http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
-Patch0:		imagination-3.0-link.patch
+
 BuildRequires:	pkgconfig(cairo) >= 1.6
-BuildRequires:	pkgconfig(glib-2.0) > 2.18.0
+BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(gthread-2.0)
-BuildRequires:	pkgconfig(gtk+-2.0) >= 2.14.0
+BuildRequires:	pkgconfig(gtk+-2.0) 
+BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(sox) >= 14.2.0
 BuildRequires:	desktop-file-utils
 BuildRequires:	gettext
@@ -33,11 +34,11 @@ sed -i -e "/#define PLUGINS_INSTALLED/s:0:1:" src/support.h
 
 %build
 autoreconf -fiv
-%configure2_5x
-%make
+%configure
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %find_lang %{name}
 
