@@ -44,6 +44,7 @@ autoreconf -fiv
 
 %files -f %{name}.lang
 %doc AUTHORS ChangeLog NEWS README TODO
+%{_docdir}/%{name}
 %{_bindir}/%{name}
 %{_libdir}/%{name}
 %{_datadir}/%{name}
