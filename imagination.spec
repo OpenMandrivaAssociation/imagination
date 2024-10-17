@@ -4,7 +4,7 @@ Version:	3.6
 Release:	1
 Group:		Video/Editors
 License:	GPLv2+
-URL:		http://imagination.sourceforge.net/
+URL:		https://imagination.sourceforge.net/
 Source:		http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 
 BuildRequires:	pkgconfig(cairo) >= 1.6
